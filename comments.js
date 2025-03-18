@@ -1,13 +1,11 @@
-// Create a web server
-// 1. Load express module
+// Create a web server that listens on port 3000 and serves the comments.json file.
+
 const express = require('express');
-// 2. Create an express server
-const server = express();
-// 3. Create a route
-server.get('/comments', (req, res) => {
-  res.send('Comments Page');
-});
-// 4. Start the server
-server.listen(3000, () => {
-  console.log('Server is running at http://localhost:3000');
+const app = express();
+const port = 3000;
+
+app.use(express.static('public'));
+
+app.listen(port, () => {
+  console.log(`Server is running at http://localhost:${port}`);
 });
